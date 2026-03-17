@@ -15,7 +15,7 @@ class PolygonLayerOptions extends LayerOptions {
     Key? key,
     this.polygons = const [],
     this.polygonCulling = false,
-    Stream<Null>? rebuild,
+    Stream<void>? rebuild,
   }) : super(key: key, rebuild: rebuild) {
     if (polygonCulling) {
       for (var polygon in polygons) {
@@ -64,7 +64,7 @@ class PolygonLayerWidget extends StatelessWidget {
 class PolygonLayer extends StatelessWidget {
   final PolygonLayerOptions polygonOpts;
   final MapState map;
-  final Stream<Null>? stream;
+  final Stream<void>? stream;
 
   PolygonLayer(this.polygonOpts, this.map, this.stream)
       : super(key: polygonOpts.key);

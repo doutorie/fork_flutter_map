@@ -14,7 +14,7 @@ class PolylineLayerOptions extends LayerOptions {
     Key? key,
     this.polylines = const [],
     this.polylineCulling = false,
-    Stream<Null>? rebuild,
+    Stream<void>? rebuild,
   }) : super(key: key, rebuild: rebuild) {
     if (polylineCulling) {
       for (var polyline in polylines) {
@@ -63,7 +63,7 @@ class PolylineLayerWidget extends StatelessWidget {
 class PolylineLayer extends StatelessWidget {
   final PolylineLayerOptions polylineOpts;
   final MapState map;
-  final Stream<Null>? stream;
+  final Stream<void>? stream;
 
   PolylineLayer(this.polylineOpts, this.map, this.stream)
       : super(key: polylineOpts.key);

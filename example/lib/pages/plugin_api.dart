@@ -27,9 +27,9 @@ class PluginPage extends StatelessWidget {
                 ),
                 layers: [
                   TileLayerOptions(
-                      urlTemplate:
-                          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                      subdomains: ['a', 'b', 'c']),
+                    urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    subdomains: ['a', 'b', 'c'],
+                  ),
                 ],
                 nonRotatedLayers: [
                   MyCustomPluginOptions(text: "I'm a plugin!"),
@@ -45,6 +45,7 @@ class PluginPage extends StatelessWidget {
 
 class MyCustomPluginOptions extends LayerOptions {
   final String text;
+
   MyCustomPluginOptions({
     Key? key,
     this.text = '',
@@ -54,8 +55,7 @@ class MyCustomPluginOptions extends LayerOptions {
 
 class MyCustomPlugin implements MapPlugin {
   @override
-  Widget createLayer(
-      LayerOptions options, MapState mapState, Stream<Null> stream) {
+  Widget createLayer(LayerOptions options, MapState mapState, Stream<void> stream) {
     if (options is MyCustomPluginOptions) {
       var style = TextStyle(
         fontWeight: FontWeight.bold,

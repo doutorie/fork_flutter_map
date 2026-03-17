@@ -10,7 +10,7 @@ class CircleLayerOptions extends LayerOptions {
   CircleLayerOptions({
     Key? key,
     this.circles = const [],
-    Stream<Null>? rebuild,
+    Stream<void>? rebuild,
   }) : super(key: key, rebuild: rebuild);
 }
 
@@ -48,7 +48,7 @@ class CircleLayerWidget extends StatelessWidget {
 class CircleLayer extends StatelessWidget {
   final CircleLayerOptions circleOpts;
   final MapState map;
-  final Stream<Null>? stream;
+  final Stream<void>? stream;
   CircleLayer(this.circleOpts, this.map, this.stream)
       : super(key: circleOpts.key);
 

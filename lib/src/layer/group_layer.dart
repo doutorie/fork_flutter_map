@@ -9,7 +9,7 @@ class GroupLayerOptions extends LayerOptions {
   GroupLayerOptions({
     Key? key,
     this.group = const [],
-    Stream<Null>? rebuild,
+    Stream<void>? rebuild,
   }) : super(key: key, rebuild: rebuild);
 }
 
@@ -28,7 +28,7 @@ class GroupLayerWidget extends StatelessWidget {
 class GroupLayer extends StatelessWidget {
   final GroupLayerOptions groupOpts;
   final MapState map;
-  final Stream<Null> stream;
+  final Stream<void> stream;
 
   GroupLayer(this.groupOpts, this.map, this.stream) : super(key: groupOpts.key);
 

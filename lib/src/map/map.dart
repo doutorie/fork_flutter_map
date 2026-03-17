@@ -113,7 +113,7 @@ class MapState {
         _zoom = options.zoom,
         _onMoveSink = StreamController.broadcast();
 
-  Stream<Null> get onMoved => _onMoveSink.stream;
+  Stream<void> get onMoved => _onMoveSink.stream;
 
   // Original size of the map where rotation isn't calculated
   CustomPoint? _originalSize;

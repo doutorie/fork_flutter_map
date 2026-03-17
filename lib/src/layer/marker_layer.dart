@@ -37,7 +37,7 @@ class MarkerLayerOptions extends LayerOptions {
     this.rotate = false,
     this.rotateOrigin,
     this.rotateAlignment = Alignment.center,
-    Stream<Null>? rebuild,
+    Stream<void>? rebuild,
   }) : super(key: key, rebuild: rebuild);
 }
 
@@ -163,7 +163,7 @@ class MarkerLayerWidget extends StatelessWidget {
 class MarkerLayer extends StatefulWidget {
   final MarkerLayerOptions markerLayerOptions;
   final MapState map;
-  final Stream<Null>? stream;
+  final Stream<void>? stream;
 
   MarkerLayer(this.markerLayerOptions, this.map, this.stream)
       : super(key: markerLayerOptions.key);
@@ -202,9 +202,9 @@ class _MarkerLayerState extends State<MarkerLayer> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<int?>(
-      stream: widget.stream, // a Stream<int> or null
-      builder: (BuildContext context, AsyncSnapshot<int?> snapshot) {
+    return StreamBuilder<void>(
+      stream: widget.stream,
+      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         var markers = <Widget>[];
         final sameZoom = widget.map.zoom == lastZoom;
         for (var i = 0; i < widget.markerLayerOptions.markers.length; i++) {

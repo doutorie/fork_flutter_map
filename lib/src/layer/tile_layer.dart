@@ -247,7 +247,7 @@ class TileLayerOptions extends LayerOptions {
   final Alignment attributionAlignment;
 
   /// Stream to notify the [TileLayer] that it needs resetting
-  Stream<Null>? reset;
+  Stream<void>? reset;
 
   TileLayerOptions(
       {this.attributionAlignment = Alignment.bottomRight,
@@ -289,7 +289,7 @@ class TileLayerOptions extends LayerOptions {
       this.overrideTilesWhenUrlChanges = false,
       this.retinaMode = false,
       this.errorTileCallback,
-      Stream<Null>? rebuild,
+      Stream<void>? rebuild,
       this.templateFunction = util.template,
       this.tileBuilder,
       this.tilesContainerBuilder,
@@ -430,7 +430,7 @@ class TileLayerWidget extends StatelessWidget {
 class TileLayer extends StatefulWidget {
   final TileLayerOptions options;
   final MapState mapState;
-  final Stream<Null> stream;
+  final Stream<void> stream;
 
   TileLayer({
     required this.options,
